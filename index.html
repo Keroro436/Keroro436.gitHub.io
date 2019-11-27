@@ -269,7 +269,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/2019/11/22/sunline/" itemprop="url">sunline</a></h1>
+                <a class="post-title-link" href="/2019/11/22/sunline/" itemprop="url">cloud</a></h1>
         
 
         <div class="post-meta">
@@ -320,177 +320,14 @@
 
       
         
-          
-            <h1 id="edsp（original）"><a href="#edsp（original）" class="headerlink" title="edsp（original）"></a><a href="http://e-proxy.yfb.sunline.cn:8090/pages/viewpage.action?pageId=36330898" target="_blank" rel="noopener">edsp（original）</a></h1><p><a href="http://e-proxy.yfb.sunline.cn:8090/pages/viewpage.action?pageId=36330898#page-metadata-end" target="_blank" rel="noopener">转至元数据结尾</a></p>
-<ul>
-<li>创建： <a href="http://e-proxy.yfb.sunline.cn:8090/display/~chenjialuo" target="_blank" rel="noopener">陈佳洛</a>，最新修改： <a href="http://e-proxy.yfb.sunline.cn:8090/pages/diffpagesbyversion.action?pageId=36330898&selectedPageVersions=9&selectedPageVersions=10" target="_blank" rel="noopener">昨天5:37 下午</a></li>
-</ul>
-<p><a href="http://e-proxy.yfb.sunline.cn:8090/pages/viewpage.action?pageId=36330898#page-metadata-start" target="_blank" rel="noopener">转至元数据起始</a></p>
-<p>edsp的使用场景，对于分布式微服务平台，会有存在多个应用的互相调用，不像单体应用那样能够清楚的管控自己的服务，而edsp就是用来管理多个应用和多个服务的互相调用，然后对应用进行监控，治理，apm包括日志，监控，组件，skywalking使用grpc追踪信息收集器收集信息，进行应用治理和链路跟踪。</p>
-<p>edsp的主要流程，首先新增模板类型，创建服务模板，选择模板类型，探测方式，配置好配置项，到域管理对资源进行绑定，创建服务资源，填写探测地址和配置项，而域盒子能够将已经配置好的域导入到一个新的部署环境，转换成一个实体的域。搞定好后，进入到选择的域里面，进入应用管理界面，创建系统，应用，选择资源，启动应用之后实例列表能够看到创建出来的实例，我们还能够使用限流降级的规则对实例进行治理。</p>
-<p>EDSP是一个分布式服务平台。主要用于多个单体应用和微服务的统一管理，可一站式对应用进行配置管理，路由管理，应用治理，应用性能监控，应用链路分析。</p>
-<p>技术中台所在的位置为分布式服务平台，他提供分布式能力和微服务能力，主要包括微服务框架，分布式事务组件。</p>
-<p>部署有两个，也是一是核心部署，二是组件部署，核心部署包括ADM-前端-Domain，组件部署包括注册中心，配置中心，日志中心，APM，治理服务，Redis缓存服务</p>
-<p>平台的使用流程，平台管理-分配用户-域列表/针对域绑定资源-进入域-会进入到系统架构设计阶段-创建系统-创建应用-创建集群/默认集群-绑定资源</p>
-<p>SDK的对接/Client侧服务部署-edsp-cose SDK依赖-SDK依赖包括（注册中心，配置中心，filebeat等，apm-agent，治理服务，redis）-启动实例</p>
-<table>
-<thead>
-<tr>
-<th align="left">镜像名</th>
-<th align="left">备注</th>
-<th align="left">个人解析（非搬用）</th>
-</tr>
-</thead>
-<tbody><tr>
-<td align="left">filebeat</td>
-<td align="left">日志中心组件</td>
-<td align="left">Filebeat是本地文件的日志数据采集器</td>
-</tr>
-<tr>
-<td align="left">kafka-manager</td>
-<td align="left">可选，日志中心组件</td>
-<td align="left">kafkka的集群管理工具</td>
-</tr>
-<tr>
-<td align="left">kibana</td>
-<td align="left">可选，APM组件和日志中心组件</td>
-<td align="left">Kibana 是为 Elasticsearch设计的开源分析和可视化平台</td>
-</tr>
-<tr>
-<td align="left">mysql</td>
-<td align="left">EDSP组件</td>
-<td align="left">mysql数据库</td>
-</tr>
-<tr>
-<td align="left">redis</td>
-<td align="left">Redis缓存服务组件</td>
-<td align="left">redis是一个key-value存储系统</td>
-</tr>
-<tr>
-<td align="left">sentinel-dashboard</td>
-<td align="left">治理服务组件</td>
-<td align="left">sentinel-dashboard是sentinel的轻量级控制台，该控制台主要提供两个功能：监控、配置</td>
-</tr>
-<tr>
-<td align="left">cp-kafka</td>
-<td align="left">日志中心组件</td>
-<td align="left">一种高吞吐量的分布式发布订阅消息系统，它可以处理消费者在网站中的所有动作流数据</td>
-</tr>
-<tr>
-<td align="left">nacos-server</td>
-<td align="left">注册/配置中心组件</td>
-<td align="left">专注于服务发现和配置管理领域</td>
-</tr>
-<tr>
-<td align="left">elasticsearch</td>
-<td align="left">APM组件</td>
-<td align="left">分布式多用户能力的全文搜索引擎</td>
-</tr>
-<tr>
-<td align="left">zookeeper</td>
-<td align="left">日志中心组件</td>
-<td align="left">分布式的，开放源码的分布式应用程序协调服务</td>
-</tr>
-<tr>
-<td align="left">skywalking-oap-server</td>
-<td align="left">APM组件</td>
-<td align="left">分布式链路追踪</td>
-</tr>
-<tr>
-<td align="left">logstash</td>
-<td align="left">日志中心组件</td>
-<td align="left">是一个开源的服务器端数据处理管道，可以同时从多个数据源获取数据，并对其进行转换，然后将其发送到你最喜欢的“存储”</td>
-</tr>
-<tr>
-<td align="left">edsp-logstack-indexer</td>
-<td align="left">日志中心组件</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">edsp-server-adm-dist</td>
-<td align="left">EDSP ADM服务端</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">edsp-server-domain-dist</td>
-<td align="left">EDSP DOMAIN服务端</td>
-<td align="left"></td>
-</tr>
-<tr>
-<td align="left">edsp-ui-dist</td>
-<td align="left">EDSP 前端web服务端</td>
-<td align="left"></td>
-</tr>
-</tbody></table>
-<p>1、讲解会讲解产品迭代的流程以及JIRA需求的流转</p>
-<p>我们发布release版本后又几个demo小版本，每个版本有他的完成度，我们要对整一个项目进行一个评估，评估它的故事点有多大，实际的工作量等，等到迭代的时候还需要在评估。在我们作为测试人员提交BUG的流程有了改变，我们要在一个需求下面创建子任务，开发也会创建他们的子任务，但是互不干扰，只有等到子任务都结束了，这个需求的流程才能被关闭。改测试流程首先在openapi先试点，试点看一下这样的开发流程是否有存在的问题，解决问题并且对我们具体公司的开发情况进行修改。</p>
-<p>1、mysql部署</p>
-<p>第一步：镜像仓库<a href="https://e-registry.yfb.sunline.cn/harbor/sign-in，点击pull命令拉取需要的镜像，得到镜像地址[e-registry.yfb.sunline.cn/library/mysql:5.7.22](http://e-registry.yfb.sunline.cn/library/mysql:5.7.22)![img](http://e-proxy.yfb.sunline.cn:8090/download/attachments/38964342/image2019-11-20_19-49-27.png?version=1&amp;modificationDate=1574251979000&amp;api=v2)" target="_blank" rel="noopener">https://e-registry.yfb.sunline.cn/harbor/sign-in，点击pull命令拉取需要的镜像，得到镜像地址[e-registry.yfb.sunline.cn/library/mysql:5.7.22](http://e-registry.yfb.sunline.cn/library/mysql:5.7.22)![img](http://e-proxy.yfb.sunline.cn:8090/download/attachments/38964342/image2019-11-20_19-49-27.png?version=1&amp;modificationDate=1574251979000&amp;api=v2)</a></p>
-<p>第二步：在rancher里deploy一个mysql，根据文档写好name,docker image,port,环境变量写上MYSQL_DATABASE.MYSQL_USER,MYSQL_PASSWORD(强制),MYSQL_RANDOM_ROOT_PASSWORD(设置yes为root生成随机初始密码)</p>
-<p>数据卷volume里添加一个使用现有的持久卷，volume可以用来存储docker引用的数据，也可以共享，挂载点(与挂载机的目录对应)填写/var/lib/mysql,子路径自定义填写(可自定义与name有关),点击launch</p>
-<p>2、domain部署</p>
-<p>第一步：镜像仓库<a href="https://e-registry.yfb.sunline.cn/harbor/sign-in，点击pull命令拉取需要的镜像，得到镜像地址[e-registry.yfb.sunline.cn/edsp/edsp-server-domain-dist:5.0.0-RELEASE](http://e-registry.yfb.sunline.cn/edsp/edsp-server-domain-dist:5.0.0-RELEASE)" target="_blank" rel="noopener">https://e-registry.yfb.sunline.cn/harbor/sign-in，点击pull命令拉取需要的镜像，得到镜像地址[e-registry.yfb.sunline.cn/edsp/edsp-server-domain-dist:5.0.0-RELEASE](http://e-registry.yfb.sunline.cn/edsp/edsp-server-domain-dist:5.0.0-RELEASE)</a></p>
-<p><img src="http://e-proxy.yfb.sunline.cn:8090/download/attachments/38964342/image2019-11-20_20-6-55.png?version=1&modificationDate=1574251978000&api=v2" alt="img"></p>
-<p>第二步：在rancher里deploy一个domain，根据文档写好name,docker image,port,环境变量写上ADMIN_URL.<a href="http://spring.application.name/" target="_blank" rel="noopener">spring.application.name</a>,DB_USERNAME,DB_PASSWORD,DB_URL，点击launch</p>
-<p>3、rancher upgrade</p>
-<p>如果没有设计到db的变更，直接升级docker image，点击upgrade，如果db数据结构改变，则需要重启db，如果应用涉及到db，则需要初始化db，key为sql_int is always</p>
-<p>4、rancher yaml的导入导出</p>
-<p>选择view/edit yaml 查看工作负载的yaml，然后点击download导出，导入如图绿色框所示，可以直接使用yaml部署</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-<th></th>
-</tr>
-</thead>
-<tbody><tr>
-<td><em>// TODO</em>1、办理入职2、学习Comfluence,Jira</td>
-<td><em>// TODO</em>1、了解了公司的情况和规章制度和测试流程2、能通过jira提交日报，bug提交；使用confluence查看部门和项目的文档，编写文档</td>
-<td>1、测试用例自我编写2、找BUG3、了解EDSP</td>
-<td><em>// TODO</em>对jira和confluence有了初步的了解。</td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td>2019.10.28-2019.11.01</td>
-<td><em>// TODO</em>1、EDSP5.0_M5测试用例的编写2、需求693和393，找BUG3、了解EDSP</td>
-<td><em>// TODO</em>1、提取测试点，编写测试用例2、提issue，跟踪issue，并对issue回归之后进行关闭3、结合帮助文档熟悉EDSP业务</td>
-<td>1、编写测试用例2、关闭上个版本的bug</td>
-<td><em>// TODO</em>了解项目流程和各个需求，便于测试人员对项目有着充足的了解和认知，对整个项目开发的生命周期也有着明显的减少</td>
-<td></td>
-</tr>
-<tr>
-<td>2019.11.04-2019.11.08</td>
-<td><em>// TODO</em>1、找BUG，编写自己模块的测试用例2，对BETA64版本自己缺陷回归，关闭缺陷。3、测试帮助文档，找BUG</td>
-<td><em>// TODO</em>1、BETA64、BETA70、BETA72的回归测试2、完善自己对EDSP用户中心的测试用例。3、提交7个BUG，回归进行关闭</td>
-<td>1、ATP工具的使用2、rancher的使用3、EDSP迭代需求</td>
-<td><em>// TODO</em>别写测试用例，能够着手操作自己负责的模块。</td>
-<td></td>
-</tr>
-<tr>
-<td>2019.11.11-2019.11.15</td>
-<td><em>// TODO</em>1、ATP工具的使用2、rancher的使用3、EDSP迭代需求理解</td>
-<td><em>// TODO</em>1、ATP的使用2、rancher的部署和升级3、分析EDSP迭代需求</td>
-<td>1、EDSP的主流程和功能了解2、EDSP的应用调用测试3、EDSP的组件</td>
-<td><em>// TODO</em>对ATP,rancher有着了初步的了解，初步理解EDSP迭代需求</td>
-<td></td>
-</tr>
-<tr>
-<td>2019.11.18-2019.11.22</td>
-<td><em>// TODO</em>1、EDSP的主流程和功能了解2、EDSP的应用调用测试3、APM的组件</td>
-<td><em>// TODO</em>1、明白EDSP的主流程、基本功能，自己负责模块2、调用应用接口测试返回结果3、初步了解APM的组件skywalking</td>
-<td></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>  用户中心有两个模块，一用户列表，二角色列表，角色列表展示内置的三个角色，超级管理员，域管理员，平台管理员，用户列表则支持用户的增删改查，用户能够关联domian和platform角色进行绑定，domain角色拥有绑定域里的所有权限，platform角色拥有平台管理层的所有权限，而作为混合角色的用户则拥有该绑定域的所有权限和平台管理层的权限，super角色则拥有所有域和平台管理的所有权限。 </p>
-
-          
+          <h1 id="cloud，original"><a href="#cloud，original" class="headerlink" title="cloud，original"></a>cloud，original</h1><p>edsp的使用场景，对于分布式微服务平台，会有存在多个应用的互相调用，不像单体应用那样能够清楚的管控自己的服务，而edsp就是用来管理多个应用和多个服务的互相调用，然后对应用进行监控，治理，apm包括日志，监控，组件，skywalking使用grpc追踪信息收集器收集信息，进行应用治理和链路跟踪。</p>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/11/22/sunline/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
