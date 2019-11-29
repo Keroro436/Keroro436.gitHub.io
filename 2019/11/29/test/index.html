@@ -1,0 +1,695 @@
+<!DOCTYPE html>
+<html lang="zh-Hans">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">
+<meta name="theme-color" content="#222">
+<meta name="generator" content="Hexo 4.0.0">
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/keroro1.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/keroro1-3232.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/keroro1-1616.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+<link rel="stylesheet" href="/lib/font-awesome/css/font-awesome.min.css">
+
+
+<script id="hexo-configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    hostname: new URL('http://yoursite.com').hostname,
+    root: '/',
+    scheme: 'Gemini',
+    version: '7.5.0',
+    exturl: false,
+    sidebar: {"position":"left","display":"post","offset":12,"onmobile":false},
+    copycode: {"enable":false,"show_result":false,"style":null},
+    back2top: {"enable":true,"sidebar":false,"scrollpercent":false},
+    bookmark: {"enable":false,"color":"#222","save":"auto"},
+    fancybox: false,
+    mediumzoom: false,
+    lazyload: false,
+    pangu: false,
+    algolia: {
+      appID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    },
+    localsearch: {"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},
+    path: '',
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    sidebarPadding: 40
+  };
+</script>
+
+  <meta name="description" content="梳理了一些在询问会问到的问题，还有基于软件测试的理论知识。">
+<meta name="keywords" content="test">
+<meta property="og:type" content="article">
+<meta property="og:title" content="测试理论">
+<meta property="og:url" content="http:&#x2F;&#x2F;yoursite.com&#x2F;2019&#x2F;11&#x2F;29&#x2F;test&#x2F;index.html">
+<meta property="og:site_name" content="KERO">
+<meta property="og:description" content="梳理了一些在询问会问到的问题，还有基于软件测试的理论知识。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="https:&#x2F;&#x2F;img.kancloud.cn&#x2F;0c&#x2F;85&#x2F;0c8501086f510da257170712e9208b2b_907x576.png">
+<meta property="og:image" content="https:&#x2F;&#x2F;img.kancloud.cn&#x2F;9d&#x2F;42&#x2F;9d421d7af59f9e7cce11580d6388673c_893x556.png">
+<meta property="og:updated_time" content="2019-11-29T03:52:07.739Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https:&#x2F;&#x2F;img.kancloud.cn&#x2F;0c&#x2F;85&#x2F;0c8501086f510da257170712e9208b2b_907x576.png">
+
+<link rel="canonical" href="http://yoursite.com/2019/11/29/test/">
+
+
+<script id="page-configurations">
+  // https://hexo.io/docs/variables.html
+  CONFIG.page = {
+    sidebar: "",
+    isHome: false,
+    isPost: true,
+    isPage: false,
+    isArchive: false
+  };
+</script>
+
+  <title>测试理论 | KERO</title>
+  
+
+
+
+
+
+
+  <noscript>
+  <style>
+  .use-motion .brand,
+  .use-motion .menu-item,
+  .sidebar-inner,
+  .use-motion .post-block,
+  .use-motion .pagination,
+  .use-motion .comments,
+  .use-motion .post-header,
+  .use-motion .post-body,
+  .use-motion .collection-header { opacity: initial; }
+
+  .use-motion .site-title,
+  .use-motion .site-subtitle {
+    opacity: initial;
+    top: initial;
+  }
+
+  .use-motion .logo-line-before i { left: initial; }
+  .use-motion .logo-line-after i { right: initial; }
+  </style>
+</noscript>
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage">
+  <div class="container use-motion">
+    <div class="headband"></div>
+
+    <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-container">
+  <div class="site-meta">
+
+    <div>
+      <a href="/" class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">KERO</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+  </div>
+
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏">
+      <span class="toggle-line toggle-line-first"></span>
+      <span class="toggle-line toggle-line-middle"></span>
+      <span class="toggle-line toggle-line-last"></span>
+    </div>
+  </div>
+</div>
+
+
+<nav class="site-nav">
+  
+  <ul id="menu" class="menu">
+        <li class="menu-item menu-item-home">
+
+    <a href="/" rel="section"><i class="fa fa-fw fa-home"></i>首页</a>
+
+  </li>
+        <li class="menu-item menu-item-about">
+
+    <a href="/about/" rel="section"><i class="fa fa-fw fa-user"></i>关于</a>
+
+  </li>
+        <li class="menu-item menu-item-tags">
+
+    <a href="/tags/" rel="section"><i class="fa fa-fw fa-tags"></i>标签</a>
+
+  </li>
+        <li class="menu-item menu-item-categories">
+
+    <a href="/categories/" rel="section"><i class="fa fa-fw fa-th"></i>分类</a>
+
+  </li>
+        <li class="menu-item menu-item-archives">
+
+    <a href="/archives/" rel="section"><i class="fa fa-fw fa-archive"></i>归档</a>
+
+  </li>
+  </ul>
+
+</nav>
+</div>
+    </header>
+
+    
+  <div class="back-to-top">
+    <i class="fa fa-arrow-up"></i>
+    <span>0%</span>
+  </div>
+
+
+    <main class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          
+
+          <div class="content">
+            
+
+  <div class="posts-expand">
+      
+  
+  
+  <article itemscope itemtype="http://schema.org/Article" class="post-block " lang="zh-Hans">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/11/29/test/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="name" content="Jialuo Chen">
+      <meta itemprop="description" content="if that's what it takes to learn that sweet heart of you.">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="KERO">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          测试理论
+        </h1>
+
+        <div class="post-meta">
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              <span class="post-meta-item-text">发表于</span>
+              
+
+              <time title="创建时间：2019-11-29 11:49:06 / 修改时间：11:52:07" itemprop="dateCreated datePublished" datetime="2019-11-29T11:49:06+08:00">2019-11-29</time>
+            </span>
+            <span class="post-meta-item">
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/%E6%B5%8B%E8%AF%95%E7%90%86%E8%AE%BA/" itemprop="url" rel="index">
+                    <span itemprop="name">测试理论</span>
+                  </a>
+                </span>
+            </span>
+
+          
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+        <p>梳理了一些在询问会问到的问题，还有基于软件测试的理论知识。</p>
+<a id="more"></a>
+
+<blockquote>
+<h3 id="B-S架构和C-S架构区别"><a href="#B-S架构和C-S架构区别" class="headerlink" title="B/S架构和C/S架构区别"></a>B/S架构和C/S架构区别</h3></blockquote>
+<ol>
+<li>B/S架构需要重点考虑系统在不同的浏览器中的兼容性问题(浏览器的内核不同)</li>
+<li>C/S 架构需要考虑系统在不同平台的安装、卸载、升级</li>
+</ol>
+<blockquote>
+<h3 id="HTTP协议"><a href="#HTTP协议" class="headerlink" title="HTTP协议"></a>HTTP协议</h3></blockquote>
+<p>超文本传输协议，应用层协议，由请求与响应组成。<br>常见的请求方式有POST/GET,常见的状态码200ok，301永久移动，302临时移动，404找不到资源，500服务器内部错误。</p>
+<blockquote>
+<h3 id="POST与GET区别"><a href="#POST与GET区别" class="headerlink" title="POST与GET区别"></a>POST与GET区别</h3></blockquote>
+<ol>
+<li>get请求常用在获取数据，post常用于发送数据</li>
+<li>get请求速度比post稍快</li>
+<li>get请求的数据是跟随请求地址一起发送，而post是在请求体中单独发送。</li>
+</ol>
+<blockquote>
+<h3 id="Cookie和Session的区别与联系"><a href="#Cookie和Session的区别与联系" class="headerlink" title="Cookie和Session的区别与联系"></a>Cookie和Session的区别与联系</h3></blockquote>
+<p>cookie是存放在浏览器上而session是存放在服务器上的。<br>cookie不是很安全，涉及到用户隐私方面尽量存放在session中。<br>当访问量增多时，session会更加占用服务器资源。</p>
+<blockquote>
+<h3 id="测试的目的"><a href="#测试的目的" class="headerlink" title="测试的目的"></a>测试的目的</h3></blockquote>
+<p>发现软件的缺陷与漏洞，对软件的质量进行评估，提升软件质量。</p>
+<blockquote>
+<h3 id="软件测试原则"><a href="#软件测试原则" class="headerlink" title="软件测试原则"></a>软件测试原则</h3></blockquote>
+<ol>
+<li>所有的软件测试都应追溯到用户需求。</li>
+<li>尽早地和不断地进行软件测试</li>
+<li>完全测试是不可能的，测试需要终止。</li>
+<li>充分注意测试中的群集现象。</li>
+<li>程序员应避免检查自己的程序。</li>
+<li>尽量避免测试的随意性</li>
+</ol>
+<blockquote>
+<h3 id="软件测试分为哪几个阶段？"><a href="#软件测试分为哪几个阶段？" class="headerlink" title="软件测试分为哪几个阶段？"></a>软件测试分为哪几个阶段？</h3></blockquote>
+<p>单元测试、集成测试、系统测试、验收测试</p>
+<blockquote>
+<h3 id="单元测试与集成测试的侧重点"><a href="#单元测试与集成测试的侧重点" class="headerlink" title="单元测试与集成测试的侧重点"></a>单元测试与集成测试的侧重点</h3></blockquote>
+<p>单元测试是对程序最小可测试的模块进行测试<br>集成测试是把各个模块连接起来时，穿越模块接口的数据是否会丢失。</p>
+<blockquote>
+<h3 id="系统测试范围"><a href="#系统测试范围" class="headerlink" title="系统测试范围"></a>系统测试范围</h3></blockquote>
+<p>功能测试、用户体验测试、性能测试、UI测试、兼容性测试、安装测试、文档测试、稳定性测试等</p>
+<blockquote>
+<h3 id="a测试与s测试的区别"><a href="#a测试与s测试的区别" class="headerlink" title="a测试与ß测试的区别"></a>a测试与ß测试的区别</h3></blockquote>
+<p>a测试：公司组织的内部人员进行的测试<br>ß测试：公司组织的典型客户在实际生活中使用。</p>
+<blockquote>
+<h3 id="验收测试怎么做？"><a href="#验收测试怎么做？" class="headerlink" title="验收测试怎么做？"></a>验收测试怎么做？</h3></blockquote>
+<p>在UAT测试之前，我们会制定测试方案，选择基线用例，即级别高的用例，在UAT测试环境上进行测试，如果测试通过，验收测试就通过了。</p>
+<blockquote>
+<h3 id="白盒、黑盒和灰盒测试区别"><a href="#白盒、黑盒和灰盒测试区别" class="headerlink" title="白盒、黑盒和灰盒测试区别"></a>白盒、黑盒和灰盒测试区别</h3></blockquote>
+<p>白盒测试：对程序的内部结构与算法进行的测试<br>黑盒测试：不考虑程序的内部结果，只检查程序是否实现了需求的功能<br>灰盒测试：关注系统接口所实现的功能，是否和需求一致。</p>
+<blockquote>
+<h3 id="冒烟测试的目的"><a href="#冒烟测试的目的" class="headerlink" title="冒烟测试的目的"></a>冒烟测试的目的</h3></blockquote>
+<p>检查程序的基本功能是否正常</p>
+<blockquote>
+<h3 id="回归测试怎么做？"><a href="#回归测试怎么做？" class="headerlink" title="回归测试怎么做？"></a>回归测试怎么做？</h3></blockquote>
+<p>首先，把bug单对应的用例执行一遍，还要检查有数据交互的模块会不会受影响，有没有引入新的问题；项目上线前，还要把当前版本的重要功能以及冒烟测试的用例都回归一遍，确保重要功能上线后不出问题。</p>
+<blockquote>
+<h3 id="全部回归与部分回归的区别？"><a href="#全部回归与部分回归的区别？" class="headerlink" title="全部回归与部分回归的区别？"></a>全部回归与部分回归的区别？</h3></blockquote>
+<p>全量回归：对软件的新版本测试时，重复执行上一个版本测试时使用的测试用例，防止以前没有的问题现在出问题了<br>部分回归：当开发修复某个bug时，我们需要去检查该bug是否被修复，还需要检查与之相关联的模块是否受到影响。</p>
+<blockquote>
+<h3 id="需求分析的目的"><a href="#需求分析的目的" class="headerlink" title="需求分析的目的"></a>需求分析的目的</h3></blockquote>
+<p>澄清需求，提取测试点</p>
+<blockquote>
+<h3 id="测试计划的目的"><a href="#测试计划的目的" class="headerlink" title="测试计划的目的"></a>测试计划的目的</h3></blockquote>
+<p>规范软件测试内容、方法和过程</p>
+<blockquote>
+<h3 id="什么时候开始写测试计划"><a href="#什么时候开始写测试计划" class="headerlink" title="什么时候开始写测试计划"></a>什么时候开始写测试计划</h3></blockquote>
+<p>需求分析之后</p>
+<blockquote>
+<h3 id="由谁来编写测试计划"><a href="#由谁来编写测试计划" class="headerlink" title="由谁来编写测试计划"></a>由谁来编写测试计划</h3></blockquote>
+<p>一般都是由测试经理或者测试组长来编写</p>
+<blockquote>
+<h3 id="测试计划的内容"><a href="#测试计划的内容" class="headerlink" title="测试计划的内容"></a>测试计划的内容</h3></blockquote>
+<p>测试项目的背景、测试范围和测试策略、测试环境、测试开始和结束条件、进度安排，测试组织，以及与测试有关的风险等方面的内容。</p>
+<blockquote>
+<h3 id="结束条件-项目上线的条件"><a href="#结束条件-项目上线的条件" class="headerlink" title="结束条件(项目上线的条件)"></a>结束条件(项目上线的条件)</h3></blockquote>
+<p>需求的覆盖率、用例的执行率和缺陷的遗留率达到质量目标。<br>通常来说：需求覆盖率和用例执行率需要达到100%<br>致命/严重的缺陷需要当天解决，轻微/一般遗留率不得超过30%</p>
+<blockquote>
+<h3 id="常见的测试风险"><a href="#常见的测试风险" class="headerlink" title="常见的测试风险"></a>常见的测试风险</h3></blockquote>
+<p>进度风险、质量风险和需求变更</p>
+<blockquote>
+<h3 id="测试用例的要素"><a href="#测试用例的要素" class="headerlink" title="测试用例的要素"></a>测试用例的要素</h3></blockquote>
+<p>用例编号,用例名称,级别,预置条件,测试步骤,期望结果</p>
+<blockquote>
+<h3 id="测试用例级别的划分"><a href="#测试用例级别的划分" class="headerlink" title="测试用例级别的划分"></a>测试用例级别的划分</h3></blockquote>
+<p>一般是依据用户使用该场景的频率，和该功能对系统的影响程度来确定</p>
+<blockquote>
+<h3 id="写好测试用例的关键-写好用例要关注的维度"><a href="#写好测试用例的关键-写好用例要关注的维度" class="headerlink" title="写好测试用例的关键 /写好用例要关注的维度"></a>写好测试用例的关键 /写好用例要关注的维度</h3></blockquote>
+<ol>
+<li>覆盖用户的需求；</li>
+<li>从用户使用场景出发，考虑用户的各种正常和异常的使用场景；</li>
+<li>用例的颗粒大小要均匀。通常，一个测试用例对应一个场景；</li>
+<li>用例各个要素要齐全，步骤应该足够详细，容易被其它测试工程师读懂，并能顺利执行；</li>
+<li>做好用例评审，及时更新测试用例。</li>
+</ol>
+<blockquote>
+<h3 id="测试用例的状态"><a href="#测试用例的状态" class="headerlink" title="测试用例的状态"></a>测试用例的状态</h3></blockquote>
+<table>
+<thead>
+<tr>
+<th align="left">英文</th>
+<th align="left">中文</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left">No Test</td>
+<td align="left">未执行状态</td>
+</tr>
+<tr>
+<td align="left">Pass</td>
+<td align="left">通过状态</td>
+</tr>
+<tr>
+<td align="left">Fail</td>
+<td align="left">失败状态</td>
+</tr>
+<tr>
+<td align="left">Block</td>
+<td align="left">阻碍状态。</td>
+</tr>
+<tr>
+<td align="left">Investigate</td>
+<td align="left">观察中状态。</td>
+</tr>
+</tbody></table>
+<blockquote>
+<h3 id="常见的测试用例设计方法"><a href="#常见的测试用例设计方法" class="headerlink" title="常见的测试用例设计方法"></a>常见的测试用例设计方法</h3></blockquote>
+<ol>
+<li>等价类</li>
+<li>边界值</li>
+<li>判定表</li>
+<li>场景法</li>
+<li>错误推测法</li>
+</ol>
+<blockquote>
+<h3 id="判定表用在哪些时候-哪些功能"><a href="#判定表用在哪些时候-哪些功能" class="headerlink" title="判定表用在哪些时候/哪些功能"></a>判定表用在哪些时候/哪些功能</h3></blockquote>
+<ul>
+<li>判定法，是用在不同的输入组合，可能会产生不同的输出这种情况，比如，一个有多个查询条件的查询功能，输入不同的查询条件组合，输出的结果是不一样的，这样的功能就要用到判定表</li>
+</ul>
+<blockquote>
+<h3 id="什么时候用到场景法"><a href="#什么时候用到场景法" class="headerlink" title="什么时候用到场景法"></a>什么时候用到场景法</h3></blockquote>
+<ul>
+<li>使用场景法通常是在冒烟测试中或者 一些流程性比较强的软件/功能(比如安装，卸载等等)</li>
+</ul>
+<blockquote>
+<h3 id="测试环境怎么搭建的？"><a href="#测试环境怎么搭建的？" class="headerlink" title="测试环境怎么搭建的？"></a>测试环境怎么搭建的？</h3></blockquote>
+<p>参考答案：搭建环境前，开发都会给到我们一份系统发布手册，我们会根据这个手册来搭建。比如，我这个xx系统，是搭建在Unix系统下的，web服务器用的是Tomcat8，MySQL版本是5.7，程序是JAVA编写的，首先我们向开发拿到编译好的安装包，然后用xshell(或CRT)远程连接上Unix系统，把tomcat服务器停掉，把程序包放到webapps目录下，然后再启动tomcat服务器就可以了。</p>
+<blockquote>
+<h3 id="偶然性问题的处理"><a href="#偶然性问题的处理" class="headerlink" title="偶然性问题的处理"></a>偶然性问题的处理</h3></blockquote>
+<ol>
+<li>发现bug之后，我们会先截图，如果确定是偶然性的问题，会将日志和截图一起提单给开发定位；</li>
+<li>如果缺陷在当前版本无法复现，且缺陷的影响程度比较低，可以提交问题单进行跟踪，跟踪三个版本，如果后三个版本都无法复现，就可以关闭该缺陷；</li>
+<li>如果是很严重的Bug，比如导致系统崩溃等，并且，实在没有再次出现，除了要及时反馈给上级之外，最后还要写到测试报告中，说明出现了什么现象，但无法再现！</li>
+</ol>
+<blockquote>
+<h3 id="当我们认为某个地方是bug，但开发认为不是bug，怎么处理？"><a href="#当我们认为某个地方是bug，但开发认为不是bug，怎么处理？" class="headerlink" title="当我们认为某个地方是bug，但开发认为不是bug，怎么处理？"></a>当我们认为某个地方是bug，但开发认为不是bug，怎么处理？</h3></blockquote>
+<ol>
+<li>先跟开发沟通，确认系统的实际结果是不是和需求有不一致的地方；有些地方可能需求没提及，但是用户体检不好，我们也可以认为是bug。</li>
+<li>如果开发以不影响用户使用为理由，拒绝修改，我们可以和产品经理，测试经理等人员进行讨论，确定是否要修改，如果大家都一致认为不用改，就不改。</li>
+</ol>
+<blockquote>
+<h3 id="产品在上线后用户发现bug，这时测试人员应做哪些工作？"><a href="#产品在上线后用户发现bug，这时测试人员应做哪些工作？" class="headerlink" title="产品在上线后用户发现bug，这时测试人员应做哪些工作？"></a>产品在上线后用户发现bug，这时测试人员应做哪些工作？</h3></blockquote>
+<ol>
+<li>测试人员复现问题后，提交问题单进行跟踪；</li>
+<li>评估该问题的严重程度，以及修复问题时的影响范围，回归测试需要测试哪些功能；</li>
+<li>问题修复后，先在测试环境上回归，通过后再在生产环境上打补丁，然后再进行回归测试；</li>
+<li>总结经验，分析问题发生的原因，避免下次出现同样问题。</li>
+</ol>
+<blockquote>
+<h3 id="二八定理"><a href="#二八定理" class="headerlink" title="二八定理"></a>二八定理</h3></blockquote>
+<p>80%的缺陷出现在 20%的模块。</p>
+<blockquote>
+<h3 id="如何跟踪缺陷"><a href="#如何跟踪缺陷" class="headerlink" title="如何跟踪缺陷"></a>如何跟踪缺陷</h3></blockquote>
+<p>当发现缺陷后，我们要在禅道上提交问题单给开发，并每隔一段时间(间隔一个小时，或两个小时都可以)去检查缺陷是否被处理，如果没及时处理，就要提示开发，让开发及时修复问题，问题修复后，要及时进行回归测试。</p>
+<blockquote>
+<h3 id="缺陷的状态"><a href="#缺陷的状态" class="headerlink" title="缺陷的状态"></a>缺陷的状态</h3></blockquote>
+<p>激活,确认,已解决,关闭</p>
+<blockquote>
+<h3 id="缺陷的等级"><a href="#缺陷的等级" class="headerlink" title="缺陷的等级"></a>缺陷的等级</h3></blockquote>
+<p>致命,严重,一般,轻微</p>
+<blockquote>
+<h3 id="缺陷单应该包含这些要素"><a href="#缺陷单应该包含这些要素" class="headerlink" title="缺陷单应该包含这些要素"></a>缺陷单应该包含这些要素</h3></blockquote>
+<p>缺陷标题，严重级别，问题所属模块，复现步骤，预期结果，实际结果，有关的日志和截图。</p>
+<blockquote>
+<h3 id="测试报告的主要内容"><a href="#测试报告的主要内容" class="headerlink" title="测试报告的主要内容"></a>测试报告的主要内容</h3></blockquote>
+<p>人力投入，用例统计，问题单分类统计，遗留bug情况，测试风险，测试对象评估，测试结论</p>
+<blockquote>
+<h3 id="如何定位bug："><a href="#如何定位bug：" class="headerlink" title="如何定位bug："></a>如何定位bug：</h3></blockquote>
+<ol>
+<li>检查测试环境配置是否有问题，测试数据是否有问题</li>
+<li>用fiddler抓包，分析请求和响应数据是否存在问题</li>
+<li>查看应用服务器的日志</li>
+<li>然后再查看数据库的数据是否存在问题</li>
+</ol>
+<blockquote>
+<h3 id="开发没时间修复，如何推进bug的修复："><a href="#开发没时间修复，如何推进bug的修复：" class="headerlink" title="开发没时间修复，如何推进bug的修复："></a>开发没时间修复，如何推进bug的修复：</h3></blockquote>
+<ol>
+<li>和开发说明该问题的严重性，会怎样影响产品的正常使用，如何还是坚持不改，就上报领导，让领导辅助推进；</li>
+<li>确认问题的严重程度，如果影响不大，不是非要改的bug，并且修复风险比较大，和领导商量后，如果认为暂时可以不用修复，也可以不修复。</li>
+</ol>
+<blockquote>
+<h3 id="软件测试流程"><a href="#软件测试流程" class="headerlink" title="软件测试流程"></a>软件测试流程</h3></blockquote>
+<p>我们这个项目是两个人负责测试的，按模块进行分工，我负责xxx模块。项目启动后，我们会到服务器上下载相关的需求文档，熟悉项目的流程，进行需求澄清，提取测试点；然后编写测试用例，再进行组内的评审，修改，定稿；在开发阶段，开发人员写完一个接口，我们就测试一个接口；等开发转测后，我们从svn上获取安装包，搭建测试环境；之后我们开始进行冒烟测试，冒烟通过后，我们就进入SIT测试，之后进行UAT用户验收测试，验收通过后，编写测试报告。</p>
+<blockquote>
+<h3 id="项目介绍"><a href="#项目介绍" class="headerlink" title="项目介绍"></a>项目介绍</h3></blockquote>
+<p>参考思路：项目叫什么名字，什么架构，有哪些模块，用来干什么的，主要的操作流程</p>
+<blockquote>
+<blockquote>
+<p>参考：我就说一下最近的一个项目，是集书芸管理系统，主要是一款基于B/S架构的电商分销管理系统，前台模块有店铺首页，购物车，会员中心，申请分销等，后台模块有店铺管理，书籍管理，订单管理，分销管理等，在后台可以上架新的商品，设置店铺活动，管理订单等，用户可以在前台注册成为会员，然后登陆系统，搜索上架的商品，将商品加入购物车之后进行结算下单，或者直接进行结算下单，下单后在用户的‘我的订单’能看到该订单信息，订单状态为待付款，在系统后台的订单管理列表也能看到该订单的信息，买家付款后，订单状态为待发货状态 ，卖家就可以进行发货，买家收到产品后进行确认，评论，整个购物的流程就结束了。这就是我这个项目的大概情况。</p>
+</blockquote>
+</blockquote>
+<blockquote>
+<h3 id="对一支圆珠笔进行测试，要从哪些方面进行测试？-扩展：还有可能是对一个水杯，一个注册功能，登陆功能，电梯等，进行测试。"><a href="#对一支圆珠笔进行测试，要从哪些方面进行测试？-扩展：还有可能是对一个水杯，一个注册功能，登陆功能，电梯等，进行测试。" class="headerlink" title="对一支圆珠笔进行测试，要从哪些方面进行测试？(扩展：还有可能是对一个水杯，一个注册功能，登陆功能，电梯等，进行测试。)"></a>对一支圆珠笔进行测试，要从哪些方面进行测试？(扩展：还有可能是对一个水杯，一个注册功能，登陆功能，电梯等，进行测试。)</h3></blockquote>
+<p>对任何东西测试一定要从质量的各个方面去说</p>
+<blockquote>
+<h3 id="三角形测试用例设计"><a href="#三角形测试用例设计" class="headerlink" title="三角形测试用例设计"></a>三角形测试用例设计</h3></blockquote>
+<p><strong>解题思路</strong><br>我们可以设三角形的3条边分别为A，B，C。如果它们能够构成三角形的3条边，必须满足：</p>
+<ol>
+<li>A&gt;0，B&gt;0，C&gt;0，且A+B&gt;C，B+C&gt;A，A+C&gt;B。</li>
+<li>如果是等腰的，还要判断A=B，或B=C，或A=C。</li>
+<li>如果是等边的，则需判断是否A=B=C。</li>
+</ol>
+<p><img src="https://img.kancloud.cn/0c/85/0c8501086f510da257170712e9208b2b_907x576.png" alt="img"><br><img src="https://img.kancloud.cn/9d/42/9d421d7af59f9e7cce11580d6388673c_893x556.png" alt="img"></p>
+<blockquote>
+<h3 id="在项目中发现哪些经典bug？什么原因导致的？"><a href="#在项目中发现哪些经典bug？什么原因导致的？" class="headerlink" title="在项目中发现哪些经典bug？什么原因导致的？"></a>在项目中发现哪些经典bug？什么原因导致的？</h3></blockquote>
+<ol>
+<li>注册信息中的错误提示信息：如手机信息栏应填入11位有效电话号码，但提示信息却为“13位电话号码”，这是因开发人员粗心大意造成的</li>
+<li>接口bug：传的字段值为空，但是开发没给默认值设个0导致接收不到</li>
+<li>数据用fiddler可以抓包拦截篡改数据</li>
+<li>弱网环境下订单可以重复提交</li>
+<li>验证码可以重复使用</li>
+<li>跑性能测试的时候，当前账号下的订单跑到别的账户上去了每次重新登陆都提示重设支付密码，而且设置的密码不能和上次相同</li>
+<li>在未登录的情况下添加商品到购物车跳转到登录页面，登录成功后购物车数量不会增加</li>
+<li>第一次提现申请未审核，再继续第二次提现申请无法成功</li>
+<li>前台发布出租房源，后台通过审核并且成功加入出租列表，前台搜索失败</li>
+</ol>
+<blockquote>
+<h3 id="一个项目完成时，有多个重要的缺陷没有被修复，但是项目负责人说可以不修改，你认为测试是不通过的，请简述你的理由。"><a href="#一个项目完成时，有多个重要的缺陷没有被修复，但是项目负责人说可以不修改，你认为测试是不通过的，请简述你的理由。" class="headerlink" title="一个项目完成时，有多个重要的缺陷没有被修复，但是项目负责人说可以不修改，你认为测试是不通过的，请简述你的理由。"></a>一个项目完成时，有多个重要的缺陷没有被修复，但是项目负责人说可以不修改，你认为测试是不通过的，请简述你的理由。</h3></blockquote>
+<p>测试是对软件的质量进行的把关，如果一个项目仍然有很多的缺陷未被修复，那么从质量的角度上我们会认为这个软件质量是不达标的，一般来说缺陷的遗留，是不允许严重、致命bug的遗留，轻微和一般的bug遗留率不超过30%。</p>
+<blockquote>
+<h3 id="在需求文档不太详细的情况下，如何开展测试？"><a href="#在需求文档不太详细的情况下，如何开展测试？" class="headerlink" title="在需求文档不太详细的情况下，如何开展测试？"></a>在需求文档不太详细的情况下，如何开展测试？</h3></blockquote>
+<ol>
+<li>首先用x-mind进行需求分析， 对于所有的需求比较模糊的地方记录下来</li>
+<li>然后主动找产品经理，让他帮忙梳理好需求模糊的地方，等产品经理确定好需求之后，再次需求分析，提取测试点</li>
+<li>根据提取的测试点编写测试用例，并评审；</li>
+<li>执行测试用例，提交问题单并跟踪，直至问题被解决；</li>
+<li>测试结束后，收集测试数据，输出测试报告。</li>
+</ol>
+<blockquote>
+<h3 id="如何尽快找到软件中的bug"><a href="#如何尽快找到软件中的bug" class="headerlink" title="如何尽快找到软件中的bug?"></a>如何尽快找到软件中的bug?</h3></blockquote>
+<ol>
+<li>尽快熟悉公司的产品业务，只有熟悉了产品的业务流程、你才能迅速找出软件中存在的一些重要的缺陷；</li>
+<li>把自己当成用户，把自己当成是用户去使用该系统，比如在使用该系统过程中是这样操作的吗?</li>
+<li>善于怀疑，不要过于相信开发人员的能力；</li>
+<li>不要让程序开发人员的观点：“用户不会进行这样的操作”而说服自己，要始终以用户的需求为根本；</li>
+<li>使用完整的流程去测试软件系统，有些子流程在单独测试时没有问题，但按流程走的时候问题就可能出来了；</li>
+<li>善于学习他人经验，进行总结，转化为自己的知识体系</li>
+</ol>
+<blockquote>
+<h3 id="上软件中存在错误的来源有哪些方面？"><a href="#上软件中存在错误的来源有哪些方面？" class="headerlink" title="上软件中存在错误的来源有哪些方面？"></a>上软件中存在错误的来源有哪些方面？</h3></blockquote>
+<ol>
+<li>软件未实现需求和规格要求的功能 ；</li>
+<li>软件未实现需求和规格未明确提及但应该实现的内容 ；</li>
+<li>软件难以理解，不易使用，运行缓慢，或者最终用户(估计会)认为不好；</li>
+<li>测试用例执行中发现的与预期结果不符的现象</li>
+</ol>
+<blockquote>
+<h3 id="ATM机吞卡的吞卡现象是不是BUG"><a href="#ATM机吞卡的吞卡现象是不是BUG" class="headerlink" title="ATM机吞卡的吞卡现象是不是BUG?"></a>ATM机吞卡的吞卡现象是不是BUG?</h3></blockquote>
+<p>不一定，看是什么情况下吞卡。如：输入三次密码错误吞卡是正常的，不属于BUG；若输入一次密码错误吞卡则是不正常的，属于BUG。</p>
+<blockquote>
+<h3 id="如何减少非问题单的提交？"><a href="#如何减少非问题单的提交？" class="headerlink" title="如何减少非问题单的提交？"></a>如何减少非问题单的提交？</h3></blockquote>
+<ol>
+<li>熟悉项目需求，充分了解各个各个功能模块的功能、参数、约束条件，弄清存在数据交互的模块之间的数据来源、数据流向；</li>
+<li>跟产品确认该问题是否属于非问题单。</li>
+</ol>
+<blockquote>
+<h3 id="有个程序，在windows上运行很慢，怎么判断是程序存在问题，还是软硬件系统存在问题？"><a href="#有个程序，在windows上运行很慢，怎么判断是程序存在问题，还是软硬件系统存在问题？" class="headerlink" title="有个程序，在windows上运行很慢，怎么判断是程序存在问题，还是软硬件系统存在问题？"></a>有个程序，在windows上运行很慢，怎么判断是程序存在问题，还是软硬件系统存在问题？</h3></blockquote>
+<p>将程序放在其他的windows上运行，如果运行的还是很慢则是程序的问题。</p>
+
+    </div>
+
+    
+    
+    
+
+      <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/test/" rel="tag"># test</a>
+          </div>
+
+        
+
+
+        
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2019/11/29/oracle/" rel="prev" title="Oracle">
+      <i class="fa fa-chevron-left"></i> Oracle
+    </a></div>
+      <div class="post-nav-item"></div>
+    </div>
+      </footer>
+    
+  </article>
+  
+  
+  
+
+  </div>
+
+
+          </div>
+          
+
+        </div>
+          
+  
+  <div class="toggle sidebar-toggle">
+    <span class="toggle-line toggle-line-first"></span>
+    <span class="toggle-line toggle-line-middle"></span>
+    <span class="toggle-line toggle-line-last"></span>
+  </div>
+
+  <aside class="sidebar">
+    <div class="sidebar-inner">
+
+      <ul class="sidebar-nav motion-element">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <!--noindex-->
+      <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#B-S架构和C-S架构区别"><span class="nav-number">1.</span> <span class="nav-text">B/S架构和C/S架构区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#HTTP协议"><span class="nav-number">2.</span> <span class="nav-text">HTTP协议</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#POST与GET区别"><span class="nav-number">3.</span> <span class="nav-text">POST与GET区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cookie和Session的区别与联系"><span class="nav-number">4.</span> <span class="nav-text">Cookie和Session的区别与联系</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试的目的"><span class="nav-number">5.</span> <span class="nav-text">测试的目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件测试原则"><span class="nav-number">6.</span> <span class="nav-text">软件测试原则</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件测试分为哪几个阶段？"><span class="nav-number">7.</span> <span class="nav-text">软件测试分为哪几个阶段？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#单元测试与集成测试的侧重点"><span class="nav-number">8.</span> <span class="nav-text">单元测试与集成测试的侧重点</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#系统测试范围"><span class="nav-number">9.</span> <span class="nav-text">系统测试范围</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#a测试与s测试的区别"><span class="nav-number">10.</span> <span class="nav-text">a测试与ß测试的区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验收测试怎么做？"><span class="nav-number">11.</span> <span class="nav-text">验收测试怎么做？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#白盒、黑盒和灰盒测试区别"><span class="nav-number">12.</span> <span class="nav-text">白盒、黑盒和灰盒测试区别</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#冒烟测试的目的"><span class="nav-number">13.</span> <span class="nav-text">冒烟测试的目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#回归测试怎么做？"><span class="nav-number">14.</span> <span class="nav-text">回归测试怎么做？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#全部回归与部分回归的区别？"><span class="nav-number">15.</span> <span class="nav-text">全部回归与部分回归的区别？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#需求分析的目的"><span class="nav-number">16.</span> <span class="nav-text">需求分析的目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试计划的目的"><span class="nav-number">17.</span> <span class="nav-text">测试计划的目的</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候开始写测试计划"><span class="nav-number">18.</span> <span class="nav-text">什么时候开始写测试计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#由谁来编写测试计划"><span class="nav-number">19.</span> <span class="nav-text">由谁来编写测试计划</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试计划的内容"><span class="nav-number">20.</span> <span class="nav-text">测试计划的内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#结束条件-项目上线的条件"><span class="nav-number">21.</span> <span class="nav-text">结束条件(项目上线的条件)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的测试风险"><span class="nav-number">22.</span> <span class="nav-text">常见的测试风险</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试用例的要素"><span class="nav-number">23.</span> <span class="nav-text">测试用例的要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试用例级别的划分"><span class="nav-number">24.</span> <span class="nav-text">测试用例级别的划分</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#写好测试用例的关键-写好用例要关注的维度"><span class="nav-number">25.</span> <span class="nav-text">写好测试用例的关键 /写好用例要关注的维度</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试用例的状态"><span class="nav-number">26.</span> <span class="nav-text">测试用例的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的测试用例设计方法"><span class="nav-number">27.</span> <span class="nav-text">常见的测试用例设计方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#判定表用在哪些时候-哪些功能"><span class="nav-number">28.</span> <span class="nav-text">判定表用在哪些时候/哪些功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#什么时候用到场景法"><span class="nav-number">29.</span> <span class="nav-text">什么时候用到场景法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试环境怎么搭建的？"><span class="nav-number">30.</span> <span class="nav-text">测试环境怎么搭建的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#偶然性问题的处理"><span class="nav-number">31.</span> <span class="nav-text">偶然性问题的处理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#当我们认为某个地方是bug，但开发认为不是bug，怎么处理？"><span class="nav-number">32.</span> <span class="nav-text">当我们认为某个地方是bug，但开发认为不是bug，怎么处理？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#产品在上线后用户发现bug，这时测试人员应做哪些工作？"><span class="nav-number">33.</span> <span class="nav-text">产品在上线后用户发现bug，这时测试人员应做哪些工作？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#二八定理"><span class="nav-number">34.</span> <span class="nav-text">二八定理</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何跟踪缺陷"><span class="nav-number">35.</span> <span class="nav-text">如何跟踪缺陷</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺陷的状态"><span class="nav-number">36.</span> <span class="nav-text">缺陷的状态</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺陷的等级"><span class="nav-number">37.</span> <span class="nav-text">缺陷的等级</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#缺陷单应该包含这些要素"><span class="nav-number">38.</span> <span class="nav-text">缺陷单应该包含这些要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#测试报告的主要内容"><span class="nav-number">39.</span> <span class="nav-text">测试报告的主要内容</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何定位bug："><span class="nav-number">40.</span> <span class="nav-text">如何定位bug：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#开发没时间修复，如何推进bug的修复："><span class="nav-number">41.</span> <span class="nav-text">开发没时间修复，如何推进bug的修复：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#软件测试流程"><span class="nav-number">42.</span> <span class="nav-text">软件测试流程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#项目介绍"><span class="nav-number">43.</span> <span class="nav-text">项目介绍</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#对一支圆珠笔进行测试，要从哪些方面进行测试？-扩展：还有可能是对一个水杯，一个注册功能，登陆功能，电梯等，进行测试。"><span class="nav-number">44.</span> <span class="nav-text">对一支圆珠笔进行测试，要从哪些方面进行测试？(扩展：还有可能是对一个水杯，一个注册功能，登陆功能，电梯等，进行测试。)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#三角形测试用例设计"><span class="nav-number">45.</span> <span class="nav-text">三角形测试用例设计</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在项目中发现哪些经典bug？什么原因导致的？"><span class="nav-number">46.</span> <span class="nav-text">在项目中发现哪些经典bug？什么原因导致的？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#一个项目完成时，有多个重要的缺陷没有被修复，但是项目负责人说可以不修改，你认为测试是不通过的，请简述你的理由。"><span class="nav-number">47.</span> <span class="nav-text">一个项目完成时，有多个重要的缺陷没有被修复，但是项目负责人说可以不修改，你认为测试是不通过的，请简述你的理由。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#在需求文档不太详细的情况下，如何开展测试？"><span class="nav-number">48.</span> <span class="nav-text">在需求文档不太详细的情况下，如何开展测试？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何尽快找到软件中的bug"><span class="nav-number">49.</span> <span class="nav-text">如何尽快找到软件中的bug?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#上软件中存在错误的来源有哪些方面？"><span class="nav-number">50.</span> <span class="nav-text">上软件中存在错误的来源有哪些方面？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ATM机吞卡的吞卡现象是不是BUG"><span class="nav-number">51.</span> <span class="nav-text">ATM机吞卡的吞卡现象是不是BUG?</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#如何减少非问题单的提交？"><span class="nav-number">52.</span> <span class="nav-text">如何减少非问题单的提交？</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#有个程序，在windows上运行很慢，怎么判断是程序存在问题，还是软硬件系统存在问题？"><span class="nav-number">53.</span> <span class="nav-text">有个程序，在windows上运行很慢，怎么判断是程序存在问题，还是软硬件系统存在问题？</span></a></li></ol></div>
+      </div>
+      <!--/noindex-->
+
+      <div class="site-overview-wrap sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+  <p class="site-author-name" itemprop="name">Jialuo Chen</p>
+  <div class="site-description" itemprop="description">if that's what it takes to learn that sweet heart of you.</div>
+</div>
+<div class="site-state-wrap motion-element">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+          <a href="/archives/">
+        
+          <span class="site-state-item-count">7</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+            <a href="/categories/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+            <a href="/tags/">
+          
+        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author motion-element">
+      <span class="links-of-author-item">
+        <a href="https://github.com/Keroro436" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;Keroro436" rel="noopener" target="_blank"><i class="fa fa-fw fa-github"></i>GitHub</a>
+      </span>
+  </div>
+
+
+
+      </div>
+
+    </div>
+  </aside>
+  <div id="sidebar-dimmer"></div>
+
+
+      </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-inner">
+        
+
+<div class="copyright">
+  
+  &copy; 
+  <span itemprop="copyrightYear">2019</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Jialuo Chen</span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" class="theme-link" rel="noopener" target="_blank">Hexo</a> 强力驱动 v4.0.0
+  </div>
+  <span class="post-meta-divider">|</span>
+  <div class="theme-info">主题 – <a href="https://theme-next.org/" class="theme-link" rel="noopener" target="_blank">NexT.Gemini</a> v7.5.0
+  </div>
+
+        
+
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+  </div>
+
+  
+  <script src="/lib/anime.min.js"></script>
+  <script src="/lib/velocity/velocity.min.js"></script>
+  <script src="/lib/velocity/velocity.ui.min.js"></script>
+<script src="/js/utils.js"></script><script src="/js/motion.js"></script>
+<script src="/js/schemes/pisces.js"></script>
+<script src="/js/next-boot.js"></script>
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+
+</body>
+</html>
